@@ -15,7 +15,8 @@ pipeline {
 
         stage('Terraform Init') {
             steps {
-                sh 'aws s3 cp s3://backend-bucket567/state.tfstate '
+                sh 'aws s3 ls s3://backend-bucket567/'
+                sh 'aws s3 cp s3://backend-bucket567/state.tfstate'
                 sh 'terraform init -reconfigure'
             }
         }

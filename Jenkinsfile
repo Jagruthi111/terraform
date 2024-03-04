@@ -21,7 +21,7 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                sh 'terraform apply -autoapprove
+                sh 'terraform apply -auto-approve'
             }
         }
     }
@@ -30,7 +30,7 @@ pipeline {
         always {
             // Clean up
             sh 'terraform destroy -auto-approve'
-            sh 'rm -f terraform.zip tfplan'
+            sh 'rm -f terraform tfplan'
         }
     }
 }

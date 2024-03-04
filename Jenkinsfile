@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
+                 sh 'rm -f terraform'
                 sh 'git clone "https://github.com/Jagruthi111/terraform.git"'
             }
         }

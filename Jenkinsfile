@@ -12,15 +12,6 @@ pipeline {
                 sh 'git clone "https://github.com/Jagruthi111/terraform.git"'
             }
         }
-
-        stage('Terraform Init') {
-            steps {
-                sh 'aws s3 ls s3://backend-bucket567/'
-                sh 'aws s3 cp s3://backend-bucket567/state.tfstate'
-                sh 'terraform init -reconfigure'
-            }
-        }
-
         stage('Terraform Plan') {
             steps {
                 sh 'terraform plan -out=tfplan'

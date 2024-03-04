@@ -31,7 +31,7 @@ pipeline {
         always {
             // Clean up
             sh 'terraform destroy -auto-approve'
-            sh 'rm -f terraform tfplan'
+            sh 'rm -f tfplan'
         }
     }
 }

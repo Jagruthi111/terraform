@@ -6,7 +6,6 @@ terraform {
     region  = "ap-south-1"
     bucket  = "backend-bucket567"
     key     = "state.tfstate"
-	dynamodb_table = "backend-statelocking"
-    encrypt = true
+    dynamodb_table = "backend-statelocking"
   }
 }

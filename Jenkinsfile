@@ -1,12 +1,5 @@
 pipeline {
     agent any
-
-    environment {
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        AWS_DEFAULT_REGION    = 'ap-south-1'
-    }
-
     stages {
         stage('Checkout Code') {
             steps {
@@ -28,8 +21,7 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                input message: 'Apply Terraform plan?', ok: 'Yes'
-                sh 'terraform apply -input=false tfplan'
+                sh 'terraform apply -autoapprove
             }
         }
     }
